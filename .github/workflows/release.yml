@@ -1,26 +1,26 @@
-# name: Publish custom assets on release
+name: Publish custom assets on release
 
-# on:
-#   release:
-#     types: [published]
+on:
+  release:
+    types: [published]
 
-# permissions:
-#   contents: write
+permissions:
+  contents: write
 
-# jobs:
-#     publish_assets:
-#         name: Publish assets
-#         runs-on: ubuntu-latest
-#         steps:
-#           - name: Checkout
-#             uses: actions/checkout@v4
+jobs:
+    publish_assets:
+        name: Publish assets
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v4
 
-#           - name: Build assets
-#             run: |
-#                 cd ${{github.workspace}}
-#                 make build
+          - name: Build assets
+            run: |
+                cd ${{github.workspace}}
+                make build
 
-#           - name: Upload assets
-#             run: gh release upload ${{github.event.release.tag_name}} src.zip
-#             env:
-#               GITHUB_TOKEN: ${{ github.TOKEN }}
+          - name: Upload assets
+            run: gh release upload ${{github.event.release.tag_name}} src.zip
+            env:
+              GITHUB_TOKEN: ${{ github.TOKEN }}

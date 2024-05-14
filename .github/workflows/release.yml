@@ -21,6 +21,8 @@ jobs:
                 make build
 
           - name: Upload assets
-            run: gh release upload ${{github.event.release.tag_name}} src.zip
+            run: |
+                pwd
+                gh release upload ${{github.event.release.tag_name}} src.zip
             env:
               GITHUB_TOKEN: ${{ github.TOKEN }}

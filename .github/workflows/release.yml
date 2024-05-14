@@ -16,11 +16,9 @@ jobs:
             uses: actions/checkout@v4
 
           - name: Build assets
-            run: |
-                make build
+            run: make build
 
           - name: Upload assets
-            run: |
-                gh release upload ${{github.event.release.tag_name}} src.zip
+            run: gh release upload ${{github.event.release.tag_name}} src.zip
             env:
               GITHUB_TOKEN: ${{ github.TOKEN }}

@@ -17,14 +17,10 @@ jobs:
 
           - name: Build assets
             run: |
-                pwd
-                cd ${{github.workspace}}
-                pwd
                 make build
 
           - name: Upload assets
             run: |
-                pwd
                 gh release upload ${{github.event.release.tag_name}} src.zip
             env:
               GITHUB_TOKEN: ${{ github.TOKEN }}

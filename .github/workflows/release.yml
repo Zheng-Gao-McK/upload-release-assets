@@ -17,7 +17,9 @@ jobs:
 
           - name: Build assets
             run: |
+                pwd
                 cd ${{github.workspace}}
+                pwd
                 make build
 
           - name: Upload assets
